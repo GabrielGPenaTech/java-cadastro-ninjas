@@ -1,10 +1,11 @@
-package dev.dev10x.cadastroDeNinjas.entities;
+package dev.dev10x.cadastroDeNinjas.ninjas;
 
+import dev.dev10x.cadastroDeNinjas.missions.MissionEntity;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "tb_ninja")
-public class Ninja {
+public class NinjaEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,10 +20,14 @@ public class Ninja {
     @Column(nullable = false)
     private int age;
 
-    public Ninja() {
+    @ManyToOne
+    @JoinColumn(name = "mission_id")
+    private MissionEntity missions;
+
+    public NinjaEntity() {
     }
 
-    public Ninja(String name, int age, String email) {
+    public NinjaEntity(String name, int age, String email) {
         this.name = name;
         this.age = age;
         this.email = email;
@@ -51,4 +56,5 @@ public class Ninja {
     public void setEmail(String email) {
         this.email = email;
     }
+
 }
