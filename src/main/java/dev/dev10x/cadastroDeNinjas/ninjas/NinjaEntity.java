@@ -2,9 +2,17 @@ package dev.dev10x.cadastroDeNinjas.ninjas;
 
 import dev.dev10x.cadastroDeNinjas.missions.MissionEntity;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "tb_ninja")
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class NinjaEntity {
 
     @Id
@@ -24,37 +32,5 @@ public class NinjaEntity {
     @JoinColumn(name = "mission_id")
     private MissionEntity missions;
 
-    public NinjaEntity() {
-    }
-
-    public NinjaEntity(String name, int age, String email) {
-        this.name = name;
-        this.age = age;
-        this.email = email;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
 }

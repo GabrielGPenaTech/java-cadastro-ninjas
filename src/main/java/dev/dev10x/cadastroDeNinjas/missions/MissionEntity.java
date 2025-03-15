@@ -2,11 +2,19 @@ package dev.dev10x.cadastroDeNinjas.missions;
 
 import dev.dev10x.cadastroDeNinjas.ninjas.NinjaEntity;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 
 @Entity
 @Table(name = "tb_mission")
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class MissionEntity {
 
     @Id
@@ -21,37 +29,4 @@ public class MissionEntity {
 
     @OneToMany(mappedBy = "missions")
     private List<NinjaEntity> ninja;
-
-    public MissionEntity() {
-    }
-
-    public MissionEntity(Long id, String difficult, String name) {
-        this.id = id;
-        this.difficult = difficult;
-        this.name = name;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getDifficult() {
-        return difficult;
-    }
-
-    public void setDifficult(String difficult) {
-        this.difficult = difficult;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }
